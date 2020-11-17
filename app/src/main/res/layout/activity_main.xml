@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin="10dp"
+    android:layout_gravity="center">
+
+        <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".MainActivity">
+
+            <TextView
+                android:id="@+id/bienvenido"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="50dp"
+                android:text="Bienvenido, "
+                android:textSize="25dp"
+                app:layout_constraintBottom_toTopOf="@id/balance"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" /> <!-- va el nombre -->
+
+            <TextView
+                android:id="@+id/balance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="50dp"
+                android:gravity="center_horizontal"
+                app:layout_constraintBottom_toTopOf="@id/tablaMain"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/balanceNumero"
+                app:layout_constraintTop_toTopOf="@id/bienvenido"
+                android:text="Balance: $"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/balanceNumero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@id/balance"
+                app:layout_constraintLeft_toRightOf="@id/balance"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/balance"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+            <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/tablaMain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:stretchColumns="1,2"
+                app:layout_constraintTop_toBottomOf="@+id/balance">
+
+                <TableRow>
+
+                    <Button
+                        android:id="@+id/btnMovimientos"
+                        android:layout_width="0dp"
+                        android:layout_column="1"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:text="movimientos" />
+
+                    <Button
+                        android:id="@+id/btnTransferencia"
+                        android:layout_width="0dp"
+                        android:layout_column="2"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:text="Transferencia" />
+
+                </TableRow>
+
+                <TableRow>
+
+                    <Button
+                        android:id="@+id/btnRealizarPago"
+                        android:layout_width="0dp"
+                        android:layout_column="1"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:text="Realizar pago" />
+
+
+                    <Button
+                        android:id="@+id/btnSalir"
+                        android:layout_width="0dp"
+                        android:layout_column="2"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="#FF3030"
+                        android:text="Salir" />
+                </TableRow>
+            </TableLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

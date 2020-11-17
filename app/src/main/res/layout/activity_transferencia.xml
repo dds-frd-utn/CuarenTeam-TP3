@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin="10dp"
+    android:layout_gravity="center">
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Transferencia">
+        <TextView
+            android:id="@+id/tituloTransferencia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp"
+            android:gravity="center_horizontal"
+            android:text="Transferencia"
+            android:textColor="@color/purple_700"
+            android:textSize="30dp"
+            app:layout_constraintBottom_toTopOf="@+id/transferenciaTexto1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/transferenciaTexto1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="Número de cuenta al que desea transferir"
+            android:textColor="@color/purple_700"
+            app:layout_constraintBottom_toTopOf="@+id/transferenciaTexto2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <EditText
+            android:id="@+id/InputCuentaDestino"
+            android:inputType="number"
+            android:gravity="center_horizontal"
+            android:layout_height="50dp"
+            android:layout_width="200dp"
+            app:layout_constraintBottom_toTopOf="@+id/transferenciaTexto2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/transferenciaTexto1" />
+        <TextView
+            android:id="@+id/transferenciaTexto2"
+            android:layout_width="match_parent"
+            android:gravity="center_horizontal"
+            android:layout_height="wrap_content"
+            android:text="Monto"
+            android:textColor="@color/purple_700"
+            android:layout_marginTop="50dp"
+            app:layout_constraintBottom_toTopOf="@+id/InputMontoTransferir"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/InputCuentaDestino" />
+        <EditText
+            android:id="@+id/InputMontoTransferir"
+            android:inputType="number"
+            android:gravity="center_horizontal"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            app:layout_constraintBottom_toTopOf="@+id/btnTransferir"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/transferenciaTexto2" />
+        <Button
+            android:id="@+id/btnTransferir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Transferir"
+            android:gravity="center"
+            android:layout_marginTop="50dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/InputMontoTransferir" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
