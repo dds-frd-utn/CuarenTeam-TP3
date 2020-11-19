@@ -64,7 +64,7 @@ public class RESTService {
             urlConnection.connect();
 
             OutputStream os = new BufferedOutputStream(urlConnection.getOutputStream());
-            os.write(JSONObject.toString().getBytes());
+            os.write(jsonParam.toString().getBytes());
             os.flush();
 
             InputStream inputStream = urlConnection.getInputStream();

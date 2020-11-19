@@ -6,19 +6,26 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
 
     int nroCuenta;
+    TextView balanceNumero;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         Intent intent = getIntent();
+        new MiAsyncTask().execute();
         int nroCuenta = intent.getIntExtra(Login.EXTRA_NROCUENTA, 0);
+        balanceNumero = (TextView) findViewById(R.id.balanceNumero);
 
         findViewById(R.id.btnSalir).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,21 +63,29 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 new MiAsyncTask().execute();
             }
-        });
+        });*/
     }
 
-    private class MiAsyncTask extends AsyncTask<String, String, String> {
-        @Override
-        protected String doInBackground(String... strings) {
-            return RESTService.makeGetRequest(
-                    "https://jsonplaceholder.typicode.com/posts/1");
-        }
+    class MiAsyncTask extends AsyncTask<String, String, String> {
+    @Override
+    protected String doInBackground(String... strings) {
+        return RESTService.makeGetRequest(
+                "https://jsonplaceholder.typicode.com/posts/1");
+    }
 
-        @Override
-        protected void onPostExecute(String result) {
-            Toast notificacion = Toast.makeText(
-                    getApplicationContext(), result, Toast.LENGTH_LONG);
-            notificacion.show();
-        }*/
+    @Override
+    protected void onPostExecute(String result) {
+        try {
+            JSONArray jsonArray = new JSONArray(result);
+            JSONObject jsonObject = jsonArray.getJSONObject(0);
+            String i = jsonObject.getString("id");
+            ((TextView) findViewById(R.id.balanceNumero)).setText(i);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        /*Toast notificacion = Toast.makeText(
+                getApplicationContext(), result, Toast.LENGTH_LONG);
+        notificacion.show();*/
+    }
     }
 }
